@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "moduleResolution": "node",   
+    "module": "commonjs", 
+    "experimentalDecorators": true,    
+    "allowJs": false,
+    "baseUrl": "./src/app",
+    "target": "es5",    
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "lib": [
+      "es6",
+      "dom"
+    ]    
+  },
+  "exclude": [    
+    "node_modules"    
+  ]
+}
