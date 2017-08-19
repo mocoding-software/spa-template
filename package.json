@@ -1,7 +1,7 @@
 {
   "name": "spa-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Single Page Application Template",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:vendors && npm run build:app",
@@ -10,7 +10,7 @@
     "update-api": "nswag swagger2tsclient /Input:http://localhost:5000/api/$spec /Output:src/app/api/ApiClient.generated.ts TypeScriptVersion:2.0 /Template:Fetch /WrapDtoExceptions:true /TypeStyle:Interface /GenerateClientInterfaces:true /DateTimeType:MomentJS"
   },
   "author": "MOCODING, LLC",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "moment": "2.18.1",
     "bootstrap": "4.0.0-alpha.6",
