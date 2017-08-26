@@ -49,6 +49,6 @@
     "typescript": "2.4.2",
     "node-noop": "1.0.0",
     "webpack-hot-middleware": "2.18.2",
-    "webpack-typescript-builder": "1.0.2"
+    "webpack-typescript-builder": "1.0.4"
   }
 }

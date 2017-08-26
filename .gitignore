@@ -8,3 +8,4 @@ dist
 wwwroot
 wwwroot_node
 .tmp
+yarn.lock

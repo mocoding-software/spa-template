@@ -25,10 +25,14 @@ const server: webpack.Entry = {
 const clientConfigBuilder = new WebpackConfigBuilder(isProduction ? client : clientDev);
 let clientConfig = clientConfigBuilder.toUmdConfig(wwwrootDir, ...plugins, vendorsDll.consume());
 clientConfig.resolve.alias = alias;
-clientConfig.output.publicPath = "_/"; //Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
 
 const serverConfigBuilder = new WebpackConfigBuilder(server);
 let serverConfig = serverConfigBuilder.toServerConfig(noderootDir, ...plugins, serverVendorsDll.consume());
 serverConfig.resolve.alias = alias;
+
+if (!isProduction) { //Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
+    clientConfig.output.publicPath = "_/";
+    serverConfig.output.publicPath = "_/";
+}
 
 export = [clientConfig, serverConfig];
