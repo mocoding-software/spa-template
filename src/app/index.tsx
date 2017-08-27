@@ -7,6 +7,8 @@ import { Route, StaticRouter } from "react-router-dom";
 import { ApplicationStateStore } from './store';
 import { Layout, HomePage, ApiExamplePage } from "./pages";
 
+import "assets/styles/index.scss";
+
 export * from "./store";
 
 export interface ClientAppProps {
