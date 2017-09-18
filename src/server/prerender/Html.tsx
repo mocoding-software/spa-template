@@ -28,15 +28,15 @@ export class Html extends React.Component<HtmlProps, {}> {
         );
 
         const renderScripts = this.getOrEmpty(scripts).map((scriptSrc, i) =>
-            <script src={scriptSrc} key={i}></script>
+            <script src={scriptSrc} key={i} charSet="utf-8"></script>
         );
 
         const renderTopInlineScripts = this.getOrEmpty(inlintScripts).filter(_ => _.position === "top").map((inline, i) =>
-            <script key={i} type="text/javascript" dangerouslySetInnerHTML={{ __html: inline.script }}></script>
+            <script key={i} type="text/javascript" dangerouslySetInnerHTML={{ __html: inline.script }} charSet="utf-8"></script>
         );
 
         const renderBottomInlineScripts = this.getOrEmpty(inlintScripts).filter(_ => _.position === "bottom").map((inline, i) =>
-            <script key={i} type="text/javascript" dangerouslySetInnerHTML={{ __html: inline.script }}></script>
+            <script key={i} type="text/javascript" dangerouslySetInnerHTML={{ __html: inline.script }} charSet="utf-8"></script>
         );
         
         const helmet = Helmet.renderStatic();
