@@ -13,11 +13,20 @@ using System.Reflection;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Net.Http.Headers;
 
 namespace spa_template
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -28,9 +37,14 @@ namespace spa_template
             services
                 .AddMvcCore()
                 .AddApiExplorer()
+                .AddDataAnnotations()
                 .AddJsonFormatters(settings => settings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-            services.AddSwaggerSpecification();
+            services
+                .AddSwaggerSpecification()
+                .AddApplicationInsightsTelemetry(Configuration)
+                .AddWebEncoders()
+                .AddSingleton<SpaFallback>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +62,14 @@ namespace spa_template
                 });
             }
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    const int durationInSeconds = 60 * 60 * 24 * 365; //one year
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = "public,max-age=" + durationInSeconds;
+                }
+            });
 
             app.Map("/api", apiApp =>
             {
@@ -57,16 +78,7 @@ namespace spa_template
 
             });
 
-            var htmlProps = new HtmlProps(env.WebRootPath);
-            app.Run(async (context) =>
-            {
-               var accept = context.Request.Headers["Accept"].First();
-               if (!accept.Contains("text/html"))
-                   return;
-               var spaPrerenderer = services.GetRequiredService<ISpaPrerenderer>();
-               var result = await spaPrerenderer.RenderToString("./wwwroot_node/index.js", null, htmlProps);
-               await context.Response.WriteAsync(result.Html);
-            });
+            app.Run(services.GetRequiredService<SpaFallback>().RequestDelegate);
         }
     }
 }

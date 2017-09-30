@@ -1,38 +1,30 @@
-import * as React from 'react';
-import { Navbar, NavbarToggler, NavbarBrand, Collapse, Nav, NavItem } from "reactstrap";
+import * as React from "react";
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from "reactstrap";
 const { NavLink } = require("reactstrap");
-import { NavLink as RRNavLink, Link } from 'react-router-dom'
+import autobind from "autobind-decorator";
+import { Link, NavLink as RRNavLink } from "react-router-dom";
 
-interface NavigationProps {
-}
-
-interface NavigationState {
+interface INavigationState {
     isOpen: boolean;
 }
 
-export class Navigation extends React.Component<NavigationProps, NavigationState> {
+export class Navigation extends React.Component<{}, INavigationState> {
     constructor() {
         super();
-
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
     }
 
-    toggle() {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    }
-    render() {
+    public render(): JSX.Element {
         return (
-            <Navbar toggleable className="mb-4 bg-inverse" inverse>
-                <NavbarToggler right onClick={this.toggle.bind(this)} />
+            <Navbar toggleable className="mb-4"  color="faded" light>
+                <NavbarToggler right onClick={this.toggle} />
                 <NavbarBrand href="/">spa-template</NavbarBrand>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav navbar >
-                        <NavItem>                            
-                            <NavLink to="/" exact activeClassName="active" tag={RRNavLink}>Home</NavLink>
+                        <NavItem>
+                            <NavLink to="/" exact={true} activeClassName="active" tag={RRNavLink}>Home</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink to="/api-example" activeClassName="active" tag={RRNavLink}>Api</NavLink>
@@ -42,6 +34,11 @@ export class Navigation extends React.Component<NavigationProps, NavigationState
             </Navbar>
         );
     }
+
+    @autobind
+    private toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen,
+        });
+    }
 }
-
-

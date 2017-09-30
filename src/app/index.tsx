@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Provider } from 'react-redux';
-import { History } from 'history';
-import { ConnectedRouter } from "react-router-redux";
+import { History } from "history";
+import * as React from "react";
+import { Provider } from "react-redux";
 import { Route, StaticRouter } from "react-router-dom";
+import { ConnectedRouter } from "react-router-redux";
 
-import { ApplicationStateStore } from './store';
-import { Layout, HomePage, ApiExamplePage } from "./pages";
+import { ApiExamplePage, HomePage, Layout } from "./pages";
+import { ApplicationStateStore } from "./store";
 
 import "assets/styles/index.scss";
 
@@ -17,18 +17,16 @@ export interface ClientAppProps {
 }
 
 export class App extends React.Component<ClientAppProps, any> {
-    render() {
+    public render(): JSX.Element {
         return (
             <Provider store={this.props.store}>
                 <ConnectedRouter history={this.props.history} >
                     <Layout>
-                        <Route exact path='/' component={HomePage} />
-                        <Route exact path='/api-example' component={ApiExamplePage} />
+                        <Route exact={true} path="/" component={HomePage} />
+                        <Route exact={true} path="/api-example" component={ApiExamplePage} />
                     </Layout>
                 </ConnectedRouter>
             </Provider>
         );
     }
 }
-
-

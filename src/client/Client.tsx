@@ -1,27 +1,34 @@
+import { createBrowserHistory, History } from "history";
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+// tslint:disable-next-line:no-var-requires
+const ReactDOM = require("react-dom");
 import * as Redux from "redux";
-import { createBrowserHistory, History } from 'history';
-import { ApplicationStateStore, ApplicationState, configureStore } from "../app/store";
 import { App } from "../app";
 import { ApiClient } from "../app/api";
+import { ApplicationStateStore, configureStore, ApplicationState } from "../app/store";
+
+import { AppInsights } from "applicationinsights-js";
 
 export class Client {
-    protected _rootEl: HTMLElement;
-    protected _store: ApplicationStateStore;
-    protected _history: History;
+    protected rootEl: HTMLElement;
+    protected store: ApplicationStateStore;
+    protected history: History;
 
     constructor(elementId: string, private HmrContainer?: any, ...middleware: Redux.Middleware[]) {
-        const rawState = (window as any).__STATE_CONTAINER__.state;
-        const initialState = JSON.parse(rawState, ApiClient.dateTimeReviver)
-        this._rootEl = document.getElementById(elementId);
-        this._history = createBrowserHistory();
-        this._store = configureStore(this._history, initialState, ...middleware);
+        const { state, instrumentationKey } = (window as any).__STATE_CONTAINER__;
+        const initialState = JSON.parse(state, ApiClient.dateTimeReviver);
+        this.rootEl = document.getElementById(elementId);
+        this.history = createBrowserHistory();
+        this.store = configureStore(this.history, initialState, ...middleware);
+
+        AppInsights.downloadAndSetup({ instrumentationKey });
+        AppInsights.trackPageView();
+        // this._history.listen(ev => AppInsights.trackPageView()); for multiple pages
     }
 
-    run(TheApp: typeof App) {
-        var Hmr = this.HmrContainer;        
-        var theApp = <TheApp store={this._store} history={this._history} />;        
-        ReactDOM.render(Hmr ? <Hmr>{theApp}</Hmr> : theApp, this._rootEl);        
+    public run(TheApp: typeof App) {
+        const Hmr = this.HmrContainer;
+        const theApp = <TheApp store={this.store} history={this.history} />;
+        ReactDOM.hydrate(Hmr ? <Hmr>{theApp}</Hmr> : theApp, this.rootEl);
     }
 }

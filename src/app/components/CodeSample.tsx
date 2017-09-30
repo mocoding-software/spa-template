@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
-export class CodeSample extends React.Component {    
+export class CodeSample extends React.Component {
 
-  markup = `<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">import</span> <span style="color: #f92672">*</span> <span style="color: #66d9ef">as</span> <span style="color: #a6e22e">Redux</span> <span style="color: #a6e22e">from</span> <span style="color: #e6db74">&#39;redux&#39;</span><span style="color: #f8f8f2">;</span>
+    public markup = `<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">import</span> <span style="color: #f92672">*</span> <span style="color: #66d9ef">as</span> <span style="color: #a6e22e">Redux</span> <span style="color: #a6e22e">from</span> <span style="color: #e6db74">&#39;redux&#39;</span><span style="color: #f8f8f2">;</span>
 <span style="color: #66d9ef">import</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">ApiClient</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ExampleDto</span> <span style="color: #f8f8f2">}</span> <span style="color: #a6e22e">from</span> <span style="color: #e6db74">&#39;api&#39;</span><span style="color: #f8f8f2">;</span>
 <span style="color: #66d9ef">import</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">Automata</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">automataReducer</span> <span style="color: #f8f8f2">}</span> <span style="color: #a6e22e">from</span> <span style="color: #e6db74">&quot;redux-automata&quot;</span><span style="color: #f8f8f2">;</span>
 
@@ -58,10 +58,10 @@ export class CodeSample extends React.Component {
     <span style="color: #a6e22e">GetServerTime</span><span style="color: #f8f8f2">,</span>
     <span style="color: #a6e22e">RefreshServerTime</span>
 <span style="color: #f8f8f2">}</span>
-</pre></div>`
-  render() {
-    return (
-        <div dangerouslySetInnerHTML={ { __html: this.markup}}></div>               
-    );
-  }
+</pre></div>`;
+    public render(): JSX.Element {
+        return (
+            <div dangerouslySetInnerHTML={{ __html: this.markup }} />
+        );
+    }
 }

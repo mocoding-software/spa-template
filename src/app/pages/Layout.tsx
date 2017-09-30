@@ -1,13 +1,10 @@
-import * as React from 'react';
-import { Helmet } from "react-helmet";
 import { Navigation } from "components";
-import { Container, Row, Col } from "reactstrap";
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import { Col, Container, Row } from "reactstrap";
 
-export interface LayoutProps {
-}
-
-export class Layout extends React.Component<LayoutProps, any> {
-    render() {
+export class Layout extends React.Component {
+    public render(): JSX.Element {
         return (
             <div>
                 <Helmet>

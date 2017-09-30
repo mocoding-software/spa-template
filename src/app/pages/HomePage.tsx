@@ -1,15 +1,14 @@
-import * as React from 'react';
-import * as Redux from 'redux';
-import { RouterState, push } from "react-router-redux";
-import { ApplicationState, connect } from 'store';
-import { Jumbotron, Button, Row, Col } from "reactstrap";
+import * as React from "react";
 import { Helmet } from "react-helmet";
+import { push, RouterState } from "react-router-redux";
+import { Button, Col, Jumbotron, Row } from "reactstrap";
+import * as Redux from "redux";
 
 export class HomePage extends React.Component {
-    render() {
+    public render(): JSX.Element {
         return (
             <div>
-                <Helmet>                    
+                <Helmet>
                     <title>Spa-Template - Home Page</title>
                 </Helmet>
                 <Row>
@@ -23,7 +22,7 @@ export class HomePage extends React.Component {
                                 <Button href="https://github.com/mocoding-software/netcore-typescript-react-boilerplate" color="primary">Learn More</Button>
                             </p>
                         </Jumbotron>
-                    </Col>                    
+                    </Col>
                 </Row>
                 <Row>
                     <Col lg={6}>
@@ -42,14 +41,14 @@ export class HomePage extends React.Component {
 
                     <Col lg={6}>
                         <h4>Webpack</h4>
-                        <p>State of the art build system on top of <a href="https://webpack.js.org/">Webpack</a> fully written on Typescript with default configuation for static assets and HMR.</p>                   
+                        <p>State of the art build system on top of <a href="https://webpack.js.org/">Webpack</a> fully written on Typescript with default configuation for static assets and HMR.</p>
 
                         <h4>Bootstrap 4</h4>
                         <p>A preview of <a href="https://v4-alpha.getbootstrap.com">Bootstrap 4</a> is included powered by <a href="https://reactstrap.github.io">Reactstrap</a>.</p>
 
                         <h4>Server Rendering</h4>
                         <p>Thanks to <a href="https://github.com/aspnet/JavaScriptServices">SPA Services</a> and <a href="https://github.com/nfl/react-helmet">React-Helmet</a> it comes with SEO friendly server-side rendering in both development and production.</p>
-                        
+
                         <h4>Docker</h4>
                         <p>Dockerfile included to make an image and deploy to your <a href="https://www.docker.com/">Docker</a> host in minutes</p>
                     </Col>

@@ -1,16 +1,16 @@
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer } from "react-hot-loader";
 import { logger } from "redux-logger";
+import * as AppModule from "../app";
 import { Client } from "./Client";
-import * as AppModule from '../app';
 
-//run client
- var client = new Client("app", AppContainer, logger);
+// run client
+const client = new Client("app", AppContainer, logger);
 client.run(AppModule.App);
 
 if (module.hot) {
-    module.hot.accept("../app", () => {        
+    module.hot.accept("../app", () => {
         const { App } = require<typeof AppModule>("../app");
-        //re-run application
+        // re-run application
         client.run(App);
     });
 }

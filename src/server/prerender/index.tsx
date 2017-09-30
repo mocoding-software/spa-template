@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { renderToString, renderToStaticMarkup } from "react-dom/server";
-import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
-import { createMemoryHistory } from 'history';
-import { StaticRouter } from 'react-router-dom';
+import { createServerRenderer, RenderResult } from "aspnet-prerendering";
+import { createMemoryHistory } from "history";
+import * as React from "react";
+import { renderToStaticMarkup, renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
 
-import { configureStore } from "../../app/store"
 import { App } from "../../app";
+import { configureStore } from "../../app/store";
 
 import { Html, HtmlProps } from "./Html";
 
 export default createServerRenderer(params => {
-    return new Promise<RenderResult>((resolve, reject) => {      
-        
+    return new Promise<RenderResult>((resolve, reject) => {
+
         const history = createMemoryHistory();
         history.replace(params.location);
         const store = configureStore(createMemoryHistory());
@@ -19,27 +19,28 @@ export default createServerRenderer(params => {
         const app = <App store={store} history={history} />;
         renderToString(app);
 
-        //TODO: implement redirect here.
-        // If there's a redirection, just send this information back to the host application        
+        // TODO: implement redirect here.
+        // If there's a redirection, just send this information back to the host application
         // if (routerContext.url) {
         //     resolve({ redirectUrl: routerContext.url });
-        //     return; 
+        //     return;
         // }
 
         params.domainTasks.then(() => {
             const markup = renderToString(app);
-            const htmlProps: HtmlProps = Object.assign({}, params.data, { markup });
+            const htmlProps: HtmlProps = { ...params.data, markup };
             const state = store.getState();
 
-            htmlProps.inlintScripts.push({
-                script: "window.__STATE_CONTAINER__=" + JSON.stringify({ state: JSON.stringify(state) }),
-                position: "bottom"
+            const inlineScript = "window.__STATE_CONTAINER__=" + JSON.stringify({
+                state: JSON.stringify(state),
+                instrumentationKey: htmlProps.instrumentationKey,
             });
+            htmlProps.inlineScripts.push(inlineScript);
 
-            const html = renderToStaticMarkup(<Html {...htmlProps} />)
+            const html = renderToStaticMarkup(<Html {...htmlProps} />);
 
             resolve({
-                html
+                html,
             });
         }, reject); // Also propagate any errors back into the host application
     });

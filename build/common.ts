@@ -1,5 +1,5 @@
-import * as webpack from "webpack";
 import * as path from "path";
+import * as webpack from "webpack";
 
 const tempDir = path.join(__dirname, "../.tmp");
 const wwwrootDir = path.join(__dirname, "..", "wwwroot/");
@@ -10,16 +10,15 @@ const alias = {
     api: path.join(__dirname, "../src/app/api"),
     components: path.join(__dirname, "../src/app/components"),
     pages: path.join(__dirname, "../src/app/pages"),
-    store: path.join(__dirname, "../src/app/store"),    
+    store: path.join(__dirname, "../src/app/store"),
 
     // assets
     assets: path.join(__dirname, "../src/assets"),
 }
 
-
 export {
     tempDir,
     wwwrootDir,
     noderootDir,
-    alias, 
+    alias,
 }
