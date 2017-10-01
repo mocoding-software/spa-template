@@ -1,4 +1,7 @@
-// @import "~bootstrap/scss/variables";
-// .jumbotron{    
-//     border: 1px solid $gray-lighter;
-// }
+ @import "~bootstrap/scss/_functions";
+ @import "~bootstrap/scss/_variables";
+ @import "~bootstrap/scss/_mixins";
+
+.jumbotron{    
+    border: 1px solid $gray-700;
+}
