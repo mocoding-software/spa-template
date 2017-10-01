@@ -4,7 +4,7 @@ import * as webpack from "webpack";
 
 import { Dll, WebpackConfigBuilder } from "webpack-typescript-builder";
 
-import { noderootDir, tempDir, wwwrootDir } from "./common";
+import { alias, noderootDir, tempDir, wwwrootDir } from "./common";
 import plugins from "./plugins";
 
 const vendorsName = "_vendors";
@@ -18,6 +18,9 @@ entry[vendorsName] = ["./src/app/vendors"];
 const configBuilder = new WebpackConfigBuilder(entry);
 
 const clientConfig = configBuilder.toUmdConfig(wwwrootDir, ...plugins, vendorsDll.produce());
+clientConfig.resolve.alias = alias;
+
 const serverConfig = configBuilder.toServerConfig(noderootDir, ...plugins, serverVendorsDll.produce());
+serverConfig.resolve.alias = alias;
 
 export default [clientConfig, serverConfig];

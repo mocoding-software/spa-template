@@ -5,7 +5,7 @@ const ReactDOM = require("react-dom");
 import * as Redux from "redux";
 import { App } from "../app";
 import { ApiClient } from "../app/api";
-import { ApplicationStateStore, configureStore, ApplicationState } from "../app/store";
+import { ApplicationState, ApplicationStateStore, configureStore } from "../app/store";
 
 import { AppInsights } from "applicationinsights-js";
 

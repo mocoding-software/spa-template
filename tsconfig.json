@@ -9,6 +9,8 @@
     "target": "es5",    
     "noImplicitAny": true,
     "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": false,
     "jsx": "react",
     "lib": [
       "es6",

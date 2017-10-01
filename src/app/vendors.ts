@@ -9,7 +9,7 @@ import "history";
 import "react-router-dom";
 import "react-router-redux";
 
-import "bootstrap/scss/bootstrap.scss";
+import "assets/styles/vendors.scss";
 import "react-transition-group";
 import "reactstrap";
 

@@ -15,12 +15,11 @@ export function configureStore(history: History, initialState?: RootModule.Appli
 
     const store = Redux.createStore(RootModule.rootReducer, initialState, Redux.compose(pipeline));
 
-    if (module.hot) {
+    if (module.hot)
         module.hot.accept("./rootReducer", () => {
             const { rootReducer } = require<typeof RootModule>("./rootReducer");
             store.replaceReducer(rootReducer);
         });
-    }
 
     return store;
 }

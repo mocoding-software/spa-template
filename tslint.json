@@ -16,7 +16,6 @@
         "no-var-requires": true,        
         "object-literal-sort-keys": false,
         "jsx-boolean-value": false,
-        "use-strict": true,
         "curly": [true, "as-needed"],
         "trailing-comma": false,
         "interface-name": [true, "never-prefix"],
