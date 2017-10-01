@@ -4,6 +4,8 @@ import * as Redux from "redux";
 import { automataMiddleware } from "redux-automata";
 import * as RootModule from "./rootReducer";
 
+export * from "./rootReducer";
+
 export function configureStore(history: History, initialState?: RootModule.ApplicationState, ...middlewares: Redux.Middleware[]): RootModule.ApplicationStateStore {
 
     const pipeline = Redux.applyMiddleware(
