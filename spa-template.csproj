@@ -42,8 +42,8 @@
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec Command="npm run build:vendors -- -p" />
-    <Exec Command="npm run build:app -- -p" />
+    <Exec Command="yarn build:vendors -p" />
+    <Exec Command="yarn build:app -p" />
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
       <DistFiles Include="wwwroot/**; wwwroot_node/**;" />
