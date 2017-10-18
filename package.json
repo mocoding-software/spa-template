@@ -42,18 +42,18 @@
     "@types/reactstrap": "4.6.4",
     "@types/redux-logger": "3.0.4",
     "@types/webpack": "3.0.13",
-    "@types/webpack-env": "1.13.1",
+    "@types/webpack-env": "1.13.2",
     "aspnet-prerendering": "3.0.1",
     "aspnet-webpack": "2.0.1",
     "aspnet-webpack-react": "3.0.0",
     "node-noop": "1.0.0",
-    "nswag": "11.9.3",
-    "react-hot-loader": "3.0.0",
+    "nswag": "11.10.0",
+    "react-hot-loader": "3.1.1",
     "ts-node": "3.3.0",
     "tslint": "5.7.0",
     "tslint-react": "3.2.0",
     "typescript": "2.5.3",
-    "webpack-hot-middleware": "2.19.1",
+    "webpack-hot-middleware": "2.20.0",
     "webpack-typescript-builder": "1.0.12"
   }
 }
