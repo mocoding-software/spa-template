@@ -9,18 +9,18 @@ const isProduction = (process.argv.indexOf("-p") !== -1);
 
 const client: webpack.Entry = {
     index: ["./src/client/index"]
-}
+};
 
 const clientDev: webpack.Entry = {
     index: [
         "react-hot-loader/patch",
         "./src/client/index.dev"
     ]
-}
+};
 
 const server: webpack.Entry = {
     index: ["./src/server/prerender/index"]
-}
+};
 
 const clientConfigBuilder = new WebpackConfigBuilder(isProduction ? client : clientDev);
 const clientConfig = clientConfigBuilder.toUmdConfig(wwwrootDir, ...plugins, vendorsDll.consume());
@@ -30,7 +30,8 @@ const serverConfigBuilder = new WebpackConfigBuilder(server);
 const serverConfig = serverConfigBuilder.toServerConfig(noderootDir, ...plugins, serverVendorsDll.consume());
 serverConfig.resolve.alias = alias;
 
-if (!isProduction) { // Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
+if (!isProduction) {
+     // Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
     clientConfig.output.publicPath = "/_/";
     serverConfig.output.publicPath = "/_/";
     clientConfig.devtool = "eval-source-map";

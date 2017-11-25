@@ -52,7 +52,7 @@ export class Html extends React.Component<HtmlProps, {}> {
             </html>
         );
     }
-    
+
     private getOrEmpty<T>(array: T[]): T[] {
         return array || [];
     }

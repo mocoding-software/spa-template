@@ -5,13 +5,16 @@ const { NavLink } = require("reactstrap");
 import autobind from "autobind-decorator";
 import { Link, NavLink as RRNavLink } from "react-router-dom";
 
+interface NavigationProps {
+}
+
 interface NavigationState {
     isOpen: boolean;
 }
 
-export class Navigation extends React.Component<{}, NavigationState> {
-    constructor() {
-        super();
+export class Navigation extends React.Component<NavigationProps, NavigationState> {
+    constructor(props: NavigationProps) {
+        super(props);
         this.state = {
             isOpen: false,
         };
