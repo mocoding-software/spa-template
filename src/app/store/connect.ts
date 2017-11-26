@@ -1,16 +1,25 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import * as Redux from "redux";
 import { ApplicationState } from "./rootReducer";
 
-type MapPropsParam<TProps> = (state: ApplicationState, ownProps?: TProps) => TProps;
+import * as React from "react";
+import {
+    connect as originalConnect, MapDispatchToPropsParam, MapStateToPropsParam, MergeProps, Options
+} from "react-redux";
 
-type MapDispatchParam<TProps, TDispatchProps> = (dispatch: Redux.Dispatch<ApplicationState>, ownProps?: TProps) => TDispatchProps;
+export type InferableComponentEnhancerWithProps<TInjectedProps, TNeedsProps> = <TComponent extends React.ComponentType<TInjectedProps & TNeedsProps>>(component: TComponent) => TComponent;
 
-export type ConnectedComponent<TProps> = <TComponent extends React.ComponentType<TProps>>(component: TComponent) => TComponent;
+interface MyConnect {
+    <TStateProps = {}, TDispatchProps = {}, TOwnProps = {}>(
+        mapStateToProps?: MapStateToPropsParam<TStateProps, TOwnProps, ApplicationState>,
+        mapDispatchToProps?: MapDispatchToPropsParam<TDispatchProps, TOwnProps>
+    ): InferableComponentEnhancerWithProps<TStateProps & TDispatchProps, TOwnProps>;
 
-function connectToAppState<TProps, TDispatchProps = {}>(mapProps: MapPropsParam<TProps>, mapDispatch?: MapDispatchParam<TProps, TDispatchProps>): ConnectedComponent<TProps> {
-    return connect<TProps, TDispatchProps, TProps>(mapProps, mapDispatch) as ConnectedComponent<TProps & TDispatchProps>;
+    <TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, TMergedProps = {}>(
+        mapStateToProps?: MapStateToPropsParam<TStateProps, TOwnProps, ApplicationState>,
+        mapDispatchToProps?: MapDispatchToPropsParam<TDispatchProps, TOwnProps>,
+        mergeProps?: MergeProps<TStateProps, TDispatchProps, TOwnProps, TMergedProps>,
+        options?: Options<TStateProps, TOwnProps, TMergedProps>
+    ): InferableComponentEnhancerWithProps<TMergedProps, TOwnProps>;
+
 }
 
-export { connectToAppState as connect };
+export const connect = originalConnect as MyConnect;
