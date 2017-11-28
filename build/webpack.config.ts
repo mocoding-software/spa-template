@@ -32,8 +32,8 @@ serverConfig.resolve.alias = alias;
 
 if (!isProduction) {
      // Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
-    clientConfig.output.publicPath = "/_/";
-    serverConfig.output.publicPath = "/_/";
+    clientConfig.output.publicPath = "/_hmr/";
+    serverConfig.output.publicPath = "/_hmr/";
     clientConfig.devtool = "eval-source-map";
     serverConfig.devtool = "eval-source-map";
 }
