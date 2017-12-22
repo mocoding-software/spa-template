@@ -5,15 +5,12 @@ const { NavLink } = require("reactstrap");
 import autobind from "autobind-decorator";
 import { Link, NavLink as RRNavLink } from "react-router-dom";
 
-interface NavigationProps {
-}
-
 interface NavigationState {
     isOpen: boolean;
 }
 
-export class Navigation extends React.Component<NavigationProps, NavigationState> {
-    constructor(props: NavigationProps) {
+export class Navigation extends React.Component<{}, NavigationState> {
+    constructor(props: {}) {
         super(props);
         this.state = {
             isOpen: false,
@@ -22,8 +19,8 @@ export class Navigation extends React.Component<NavigationProps, NavigationState
 
     public render(): JSX.Element {
         return (
-            <Navbar toggleable className="mb-4"  color="faded" light>
-                <NavbarToggler right onClick={this.toggle} />
+            <Navbar expand="md" className="mb-4"  color="faded" light>
+                <NavbarToggler onClick={this.toggle} />
                 <NavbarBrand href="/">spa-template</NavbarBrand>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav navbar >
