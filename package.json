@@ -51,7 +51,7 @@
     "react-hot-loader": "4.0.0",
     "ts-node": "5.0.1",
     "tslint": "5.8.0",
-    "tslint-react": "3.2.0",
+    "tslint-react": "3.5.1",
     "typescript": "2.7.2",
     "webpack-hot-middleware": "2.21.2",
     "webpack-typescript-builder": "1.2.5"
