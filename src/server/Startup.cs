@@ -41,6 +41,7 @@ namespace spa_template
                 .AddJsonFormatters(settings => settings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
             services
+                .AddResponseCompression()
                 .AddSwaggerSpecification()
                 .AddApplicationInsightsTelemetry(Configuration)
                 .AddWebEncoders()
@@ -50,6 +51,7 @@ namespace spa_template
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
+            app.UseResponseCompression();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

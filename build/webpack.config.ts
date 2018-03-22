@@ -13,6 +13,7 @@ const client: webpack.Entry = {
 
 const clientDev: webpack.Entry = {
     index: [
+        "css-hot-loader/hotModuleReplacement", // https://github.com/shepherdwind/css-hot-loader/issues/37
         "react-hot-loader/patch",
         "./src/client/index.dev"
     ]
@@ -36,6 +37,7 @@ if (!isProduction) {
     serverConfig.output.publicPath = "/_hmr/";
     clientConfig.devtool = "eval-source-map";
     serverConfig.devtool = "eval-source-map";
+} else {
 }
 
 export = [clientConfig, serverConfig];
