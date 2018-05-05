@@ -10,7 +10,7 @@ export interface ApplicationState {
 
 export type ApplicationStateStore = Redux.Store<ApplicationState>;
 
-export const rootReducer: Redux.Reducer<ApplicationState> = Redux.combineReducers<ApplicationState>({
+export const rootReducer: Redux.Reducer<ApplicationState> = Redux.combineReducers({
     routing: routerReducer,
     exampleApi: exampleApiReducer,
 });
