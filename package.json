@@ -52,6 +52,6 @@
     "tslint-react": "3.5.1",
     "typescript": "2.8.3",
     "webpack-hot-middleware": "2.22.1",
-    "webpack-typescript-builder": "2.0.0"
+    "webpack-typescript-builder": "2.0.1"
   }
 }
