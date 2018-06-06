@@ -5,9 +5,6 @@
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="src\app\api\ApiClient.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />    
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="2.1.0" />
