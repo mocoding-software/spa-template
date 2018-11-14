@@ -53,6 +53,6 @@
     "typescript": "3.1.3",
     "webpack-hot-middleware": "2.24.3",
     "webpack-dev-middleware": "3.4.0",
-    "webpack-typescript-builder": "file:../webpack-typescript-builder/webpack-typescript-builder-2.0.4.tgz"
+    "webpack-typescript-builder": "2.0.4"
   }
 }
