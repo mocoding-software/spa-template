@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { push, RouterState } from "react-router-redux";
 import { Button, Col, Jumbotron, Row } from "reactstrap";
-import * as Redux from "redux";
 
 export class HomePage extends React.Component {
     public render(): JSX.Element {

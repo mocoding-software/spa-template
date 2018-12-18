@@ -1,5 +1,5 @@
+import { routerMiddleware } from "connected-react-router";
 import { History } from "history";
-import { routerMiddleware } from "react-router-redux";
 import * as Redux from "redux";
 import { automataMiddleware } from "redux-automata";
 import * as RootModule from "./rootReducer";
@@ -15,12 +15,12 @@ export function configureStore(history: History, initialState?: RootModule.Appli
         ...middlewares,
     );
 
-    const store = Redux.createStore(RootModule.rootReducer, initialState, Redux.compose(pipeline));
+    const store = Redux.createStore(RootModule.createRootReducer(history), initialState, Redux.compose(pipeline));
 
     if (module.hot)
         module.hot.accept("./rootReducer", () => {
-            const { rootReducer } = require<typeof RootModule>("./rootReducer");
-            store.replaceReducer(rootReducer);
+            const { createRootReducer } = require<typeof RootModule>("./rootReducer");
+            store.replaceReducer(createRootReducer(history));
         });
 
     return store;

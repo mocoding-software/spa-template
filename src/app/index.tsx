@@ -1,8 +1,8 @@
+import { ConnectedRouter } from "connected-react-router";
 import { History } from "history";
 import * as React from "react";
 import { Provider } from "react-redux";
-import { Route, StaticRouter } from "react-router-dom";
-import { ConnectedRouter } from "react-router-redux";
+import { Route } from "react-router-dom";
 
 import { ApiExamplePage, HomePage, Layout } from "./pages";
 import { ApplicationStateStore } from "./store";
