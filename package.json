@@ -51,6 +51,6 @@
     "typescript": "3.2.2",
     "webpack-hot-middleware": "2.24.3",
     "webpack-dev-middleware": "3.4.0",
-    "webpack-typescript-builder": "3.0.0-beta"
+    "webpack-typescript-builder": "3.0.0"
   }
 }
