@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/applicationinsights-js": "1.0.9",
-    "@types/react": "16.7.17",
+    "@types/react": "16.7.18",
     "@types/react-dom": "16.0.11",
     "@types/react-helmet": "5.0.7",
     "@types/react-hot-loader": "4.1.0",
