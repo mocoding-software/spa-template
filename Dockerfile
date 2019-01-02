@@ -1,4 +1,4 @@
-FROM mocoding/dotnet-node:2.1.6-10.x
+FROM mocoding/dotnet-node:2.2-10.x
 
 # Copy the app
 COPY . /app
