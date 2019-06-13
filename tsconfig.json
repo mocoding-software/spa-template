@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": false,
+    "removeComments": false,
     "jsx": "react",
     "lib": [
       "es6",

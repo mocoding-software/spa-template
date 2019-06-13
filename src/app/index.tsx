@@ -4,12 +4,24 @@ import * as React from "react";
 import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
 
-import { ApiExamplePage, HomePage, Layout } from "./pages";
+import { HomePage, Layout } from "./pages";
 import { ApplicationStateStore } from "./store";
 
 import "assets/styles/index.scss";
 
 export * from "./store";
+
+// @ts-ignore
+import Loadable from "react-loadable";
+
+function Loading() {
+  return <div>Loading...</div>;
+}
+
+const ApiExamplePage = Loadable({
+  loader: () => System.import(/* webpackChunkName="page" */"./pages/ApiExamplePage"),
+  loading: Loading,
+});
 
 export interface ClientAppProps {
     store: ApplicationStateStore;

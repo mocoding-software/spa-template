@@ -16,8 +16,8 @@ export default createServerRenderer(params => {
         history.replace(params.location);
         const store = configureStore(createMemoryHistory());
 
-        const app = <App store={store} history={history} />;
-        renderToString(app);
+        // const app = <App store={store} history={history} />;
+        // renderToString(app);
 
         // TODO: implement redirect here.
         // If there's a redirection, just send this information back to the host application
@@ -27,8 +27,8 @@ export default createServerRenderer(params => {
         // }
 
         params.domainTasks.then(() => {
-            const markup = renderToString(app);
-            const htmlProps: HtmlProps = { ...params.data, markup };
+
+            const htmlProps: HtmlProps = { ...params.data, markup: "" };
             const state = store.getState();
 
             const inlineScript = "window.__STATE_CONTAINER__=" + JSON.stringify({

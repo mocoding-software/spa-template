@@ -8,14 +8,18 @@ import { serverVendorsDll, vendorsDll } from "./webpack.config.vendors";
 const isProduction = (process.argv.indexOf("-p") !== -1);
 
 const client: webpack.Entry = {
-    index: ["./src/client/index"]
+    index: "./src/client/index"
 };
 
+// const clientDev: webpack.Entry = {
+//     index: [
+//         "css-hot-loader/hotModuleReplacement", // https://github.com/shepherdwind/css-hot-loader/issues/37
+//         "./src/client/index.dev"
+//     ]
+// };
+
 const clientDev: webpack.Entry = {
-    index: [
-        "css-hot-loader/hotModuleReplacement", // https://github.com/shepherdwind/css-hot-loader/issues/37
-        "./src/client/index.dev"
-    ]
+    index: "./src/client/index.dev"
 };
 
 const server: webpack.Entry = {
@@ -29,9 +33,18 @@ clientConfig.resolve.alias = alias;
 const serverConfigBuilder = new WebpackConfigBuilder(server);
 const serverConfig = serverConfigBuilder.toServerConfig(noderootDir, ...plugins, serverVendorsDll.consume());
 serverConfig.resolve.alias = alias;
+// clientConfig.stats = { modules: true };
+// serverConfig.stats = { modules: true };
+clientConfig.output = {
+    chunkFilename: "z.[name].js",
+    library: "[name]",
+    libraryTarget: "umd",
+    path: wwwrootDir,
+    publicPath: "/",
+};
 
 if (!isProduction) {
-     // Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
+    // Until fixed: https://github.com/aspnet/JavaScriptServices/issues/1191
     clientConfig.output.publicPath = "/_hmr/";
     serverConfig.output.publicPath = "/_hmr/";
     clientConfig.devtool = "eval-source-map";
