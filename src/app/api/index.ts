@@ -1,2 +1,2 @@
-export * from "./ApiClient.generated";
-export * from "./ApiClient";
+export * from "./api-client.generated";
+export * from "./api-client";

@@ -1,3 +1,3 @@
-export * from "./Layout";
-export * from "./HomePage";
-export * from "./ApiExamplePage";
+export * from "./layout";
+export * from "./home-page";
+export * from "./example-page";

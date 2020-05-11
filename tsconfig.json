@@ -1,23 +1,7 @@
 {
+  "extends": "@mocoding/react-app-common/tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "moduleResolution": "node",   
-    "module": "commonjs", 
-    "experimentalDecorators": true,    
-    "allowJs": false,
-    "baseUrl": "./src/app",
-    "target": "es5",    
-    "noImplicitAny": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": false,
-    "jsx": "react",
-    "lib": [
-      "es6",
-      "dom"
-    ]    
+    "baseUrl": "./src/app"
   },
-  "exclude": [    
-    "node_modules"    
-  ]
+  "include": ["./src/app"]
 }

@@ -1,18 +1,17 @@
-import { connectRouter, RouterState } from "connected-react-router";
-import { History } from "history";
+import { RouterState } from "connected-react-router";
 import * as Redux from "redux";
-import { exampleApiReducer, ExampleApiState } from "./example";
+import { automataMiddleware } from "redux-automata";
+import { exampleApiReducer, ExampleApiState } from "./reducers/example-reducer";
 
 export interface ApplicationState {
-    router: RouterState;
-    exampleApi: ExampleApiState;
+  router: RouterState;
+  exampleApi: ExampleApiState;
 }
 
-export type ApplicationStateStore = Redux.Store<ApplicationState>;
+const reducers: Redux.ReducersMapObject<Omit<ApplicationState, "router">> = {
+  exampleApi: exampleApiReducer,
+};
 
-export function createRootReducer(history: History): Redux.Reducer<ApplicationState> {
-    return Redux.combineReducers({
-        router: connectRouter(history),
-        exampleApi: exampleApiReducer,
-    });
-}
+const middlewares: Redux.Middleware[] = [automataMiddleware];
+
+export { middlewares, reducers };
