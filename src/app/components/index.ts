@@ -1,2 +1,2 @@
-export * from "./Navigation";
-export * from "./CodeSample";
+export * from "./navigation";
+export * from "./code-sample";

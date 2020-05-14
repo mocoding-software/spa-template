@@ -1,0 +1,22 @@
+version: "3"
+services:
+  devbox:
+    image: mocoding/dotnet-node:3.1-12.x-dev
+    ports:
+      - 5000:5000
+
+    volumes:
+      - ..:/workspace:consistent
+      - ~/.ssh:/root/.ssh:ro
+      # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-in-docker-compose for details.
+      # - /var/run/docker.sock:/var/run/docker.sock
+
+    tmpfs:
+      - /workspace/node_modules:exec
+
+    environment:
+      - MOAPP_API_URL=http://localhost:5000      
+      - ASPNETCORE_URLS=http://+:5000
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"

@@ -1,10 +1,16 @@
-FROM mocoding/dotnet-node:2.2-10.x
+FROM mocoding/dotnet-node:3.1-12.x-dev as devbox
+
+ADD . /workspace
+WORKDIR /workspace
+
+RUN yarn
+RUN dotnet publish -c Release --no-self-contained -o /_pub /p:DebugType=None
+
+FROM mocoding/dotnet-node:3.1-12.x-prod
 
 # Copy the app
-COPY . /app
+COPY --from=devbox /_pub /app
 WORKDIR /app
-
-EXPOSE 80
 
 # Start the app
 ENTRYPOINT dotnet spa-template.dll
