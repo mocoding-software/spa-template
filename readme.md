@@ -13,7 +13,7 @@ This template was originally created in 2017 and used cutting edge technologies 
 - [@mocoding/react-app](https://github.com/mocoding-software/react-app) - build system for React Application
 - [dotnet-node-docker](https://github.com/mocoding-software/dotnet-node-docker) - base Docker images
 
-At this time there is no plans to go beyond that. Template is considered complete and powers a set of production websites with low to medium load. There will be minor updates primarily for library used but not in a structure of the template. So enjoy!
+At this time there is no plans to go beyond that. Template is considered complete and powers a set of production websites with low to medium load. There will be minor updates primarily for the libraries used in the template but not in its structure. So enjoy!
 
 ## Main Features
 
