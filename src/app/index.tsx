@@ -2,7 +2,7 @@ import * as React from "react";
 import { Route } from "react-router-dom";
 import { ExamplePage, HomePage, Layout } from "./pages";
 
-import "../assets/styles/index.scss";
+import "./index.scss";
 
 export class App extends React.Component {
   public render(): JSX.Element {

@@ -1,4 +1,4 @@
-import { ApplicationState } from "./rootReducer";
+import { ApplicationState } from "./root-reducer";
 
 import * as React from "react";
 import {

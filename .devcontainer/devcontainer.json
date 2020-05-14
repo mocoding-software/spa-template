@@ -36,6 +36,7 @@
     "christian-kohler.path-intellisense",
     "rbbit.typescript-hero",
     "dskwrk.vscode-generate-getter-setter",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

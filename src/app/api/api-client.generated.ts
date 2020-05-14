@@ -7,6 +7,8 @@
 //----------------------
 // ReSharper disable InconsistentNaming
 
+import * as moment from 'moment';
+
 export interface IClient {
     /**
      * @return Success
@@ -63,7 +65,7 @@ export class Client implements IClient {
 
 export interface ExampleDto {
     message?: string | undefined;
-    currentServerTime?: Date;
+    currentServerTime?: moment.Moment;
 }
 
 export class ApiException extends Error {

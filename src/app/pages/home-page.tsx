@@ -17,11 +17,11 @@ export class HomePage extends React.Component {
               <hr className="my-2" />
               <p>
                 Boilerplate to build .NET single page application where everything is
-                integrated and ready for your customization.
+                integrated and ready for customization.
               </p>
               <p className="lead">
                 <Button
-                  href="https://github.com/mocoding-software/netcore-typescript-react-boilerplate"
+                  href="https://github.com/mocoding-software/spa-template"
                   color="primary"
                 >
                   Learn More
@@ -34,16 +34,17 @@ export class HomePage extends React.Component {
           <Col lg={6}>
             <h4>.NET Core</h4>
             <p>
-              Minimal configuration for server side powered with{" "}
-              <a href="https://github.com/aspnet/JavaScriptServices">SPA Services</a> and
-              API.
+              Minimal configuration for server side rendering powered with{" "}
+              <a href="https://github.com/mocoding-software/aspnetcore-spa">
+                Mocoding.AspNetCore.Spa
+              </a>{" "}
+              and API.
             </p>
 
             <h4>TypeScript</h4>
             <p>
-              100% typed code, 0% JavaScript. Even{" "}
-              <a href="https://webpack.js.org/">Webpack</a> configuration is written on{" "}
-              <a href="https://www.typescriptlang.org/">TypeScript</a> !
+              100% typed code, 0% JavaScript. Everything is in
+              <a href="https://www.typescriptlang.org/">TypeScript</a>!
             </p>
 
             <h4>React/Redux</h4>
@@ -62,34 +63,53 @@ export class HomePage extends React.Component {
               <a href="https://github.com/RSuter/NSwag">NSwag</a> to automatically
               generating Api Client on Typescript.
             </p>
-          </Col>
-
-          <Col lg={6}>
-            <h4>Webpack</h4>
-            <p>
-              State of the art build system on top of{" "}
-              <a href="https://webpack.js.org/">Webpack</a> fully written on Typescript
-              with default configuation for static assets and HMR.
-            </p>
-
-            <h4>Bootstrap 4</h4>
-            <p>
-              A preview of <a href="https://v4-alpha.getbootstrap.com">Bootstrap 4</a> is
-              included powered by <a href="https://reactstrap.github.io">Reactstrap</a>.
-            </p>
-
-            <h4>Server Rendering</h4>
-            <p>
-              Thanks to{" "}
-              <a href="https://github.com/aspnet/JavaScriptServices">SPA Services</a> and{" "}
-              <a href="https://github.com/nfl/react-helmet">React-Helmet</a> it comes with
-              SEO friendly server-side rendering in both development and production.
-            </p>
 
             <h4>Docker</h4>
             <p>
               Dockerfile included to make an image and deploy to your{" "}
               <a href="https://www.docker.com/">Docker</a> host in minutes
+            </p>
+          </Col>
+
+          <Col lg={6}>
+            <h4>Next Gen React Application</h4>
+            <p>
+              State of the art build system on top of{" "}
+              <a href="https://github.com/mocoding-software/react-app">
+                @mocoding/react-app
+              </a>{" "}
+              fully written on Typescript with default configuation for static assets, SSR
+              and HMR.
+            </p>
+
+            <h4>Bootstrap 4</h4>
+            <p>
+              <a href="https://v4-alpha.getbootstrap.com">Bootstrap 4</a> is included by
+              default and powered by <a href="https://reactstrap.github.io">Reactstrap</a>
+              .
+            </p>
+
+            <h4>Server Rendering</h4>
+            <p>
+              Thanks to{" "}
+              <a href="https://github.com/mocoding-software/aspnetcore-spa">
+                Mocoding.AspNetCore.Spa
+              </a>{" "}
+              and{" "}
+              <a href="https://github.com/staylor/react-helmet-async#readme">
+                react-helmet-async
+              </a>{" "}
+              it comes with SEO friendly server-side rendering in both development and
+              production.
+            </p>
+
+            <h4>Remote Development</h4>
+            <p>
+              Being Visual Studio Code centric the template comes preconfigured for{" "}
+              <a href="https://code.visualstudio.com/docs/remote/remote-overview">
+                Remote Developoment
+              </a>{" "}
+              in containers.
             </p>
           </Col>
         </Row>

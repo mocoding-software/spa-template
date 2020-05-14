@@ -15,8 +15,7 @@ services:
       - /workspace/node_modules:exec
 
     environment:
-      - API_URL=http://localhost:5000
-      - SCRIPTS_TYPE=text/javascript
+      - MOAPP_API_URL=http://localhost:5000      
       - ASPNETCORE_URLS=http://+:5000
 
     # Overrides default command so things don't shut down after the process ends.

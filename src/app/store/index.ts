@@ -1,2 +1,3 @@
 export * from "./connect";
-export * from "./rootReducer";
+export * from "./root-reducer";
+export * from "./initial-state";

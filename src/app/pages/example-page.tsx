@@ -44,7 +44,7 @@ export class ExamplePage extends React.Component<ExamplePageProps> {
         <p>
           {apiState.result.message}
           <br />
-          {apiState.result.currentServerTime}
+          {apiState.result.currentServerTime?.utcOffset(0).format("HH:mm:ss a")}
         </p>
       ) : (
         "loading..."
