@@ -12,8 +12,8 @@
   "author": "MOCODING, LLC",
   "license": "MIT",
   "devDependencies": {
-    "@mocoding/react-app-router-redux-async": "^1.0.1",
     "@mocoding/react-app": "^1.0.1",
+    "@mocoding/react-app-router-redux-async": "^1.0.1",
     "@types/applicationinsights-js": "^1.0.9",
     "@types/reactstrap": "^8.4.2",
     "applicationinsights-js": "^1.0.21",
@@ -22,7 +22,7 @@
     "moment": "^2.25.3",
     "nswag": "^13.5.0",
     "reactstrap": "^8.4.1",
-    "redux-automata": "^2.6.1"
+    "redux-automata": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "@mocoding/eslint-config"
