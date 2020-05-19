@@ -5,11 +5,11 @@
     <IsPackable>false</IsPackable>    
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Jering.Javascript.NodeJS" Version="5.3.0" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
-    <PackageReference Include="Mocoding.AspNetCore.Spa" Version="1.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.0.0" />
+    <PackageReference Include="Jering.Javascript.NodeJS" Version="5.4.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.14.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.4" />
+    <PackageReference Include="Mocoding.AspNetCore.Spa" Version="1.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
   </ItemGroup>  
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
