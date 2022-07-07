@@ -19,7 +19,7 @@
     "applicationinsights-js": "^1.0.21",
     "autobind-decorator": "^2.4.0",
     "bootstrap": "^4.5.0",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "nswag": "^13.5.0",
     "reactstrap": "^8.4.1",
     "redux-automata": "^3.0.0"
